@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand: #f48c25;
+  --color-brand-dark: #e07b1a;
+
+  --color-dark-900: #1a120b;
+  --color-dark-800: #2c2219;
+  --color-dark-700: #3d3024;
+
+  --font-display: var(--font-bebas-neue), sans-serif;
+  --font-body: var(--font-montserrat), sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #1a120b;
+  --foreground: #f3f4f6;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.wood-bg {
+  background-image: linear-gradient(rgba(26, 18, 11, 0.92), rgba(26, 18, 11, 0.95)), url('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?q=80&w=2070&auto=format&fit=crop');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* Gallery Lightbox Effect */
+.gallery-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  z-index: 10;
 }
