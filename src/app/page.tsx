@@ -10,8 +10,9 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-md border-b border-dark-700 shadow-lg">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <a href="#" className="flex items-center gap-2 group">
+            <Image src="/images/logo.png" alt="Serendipia Logo" width={48} height={48} className="rounded-full border-2 border-brand/50 group-hover:scale-105 transition-transform" />
             <span className="font-display text-2xl tracking-wide text-white group-hover:text-brand transition-colors">
-              SERENDIPIA PAN PIZZAS
+              SERENDIPIA
             </span>
           </a>
 
@@ -43,10 +44,14 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/70 to-dark-900/50"></div>
         </div>
 
-        <div className="container mx-auto max-w-5xl relative z-10">
+        <div className="container mx-auto max-w-5xl relative z-10 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/20 border border-brand/30 text-brand font-bold text-xs uppercase tracking-[0.2em] mb-6 backdrop-blur-sm">
             <span className="material-symbols-outlined text-sm">local_fire_department</span>
             🔥 Pizzas Artesanales · Panadería · Masa Madre
+          </div>
+
+          <div className="mb-6">
+              <Image src="/images/logo.png" alt="Serendipia Logo" width={160} height={160} className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full border-4 border-brand/80 shadow-2xl shadow-brand/30 object-cover" />
           </div>
 
           <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-white leading-none tracking-wide text-shadow mb-4">
