@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Montserrat } from "next/font/google";
+import { Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const bebasNeue = Bebas_Neue({
-  weight: "400",
-  variable: "--font-bebas-neue",
+const playfairDisplay = Playfair_Display({
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-playfair",
   subsets: ["latin"],
 });
 
@@ -35,7 +35,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
       </head>
       <body
-        className={`${bebasNeue.variable} ${montserrat.variable} antialiased wood-bg min-h-screen relative font-body`}
+        className={`${playfairDisplay.variable} ${montserrat.variable} antialiased wood-bg min-h-screen relative font-body`}
       >
         {children}
       </body>

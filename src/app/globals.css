@@ -8,7 +8,7 @@
   --color-dark-800: #2c2219;
   --color-dark-700: #3d3024;
 
-  --font-display: var(--font-bebas-neue), sans-serif;
+  --font-display: var(--font-playfair), serif;
   --font-body: var(--font-montserrat), sans-serif;
 }
 

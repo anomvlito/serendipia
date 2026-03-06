@@ -1,9 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import { menuData } from '@/data/menu';
 import Image from 'next/image';
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <>
       {/* Navbar */}
@@ -30,10 +33,30 @@ export default function Home() {
             Pedir Ahora
           </a>
 
-          <button className="md:hidden text-white p-2">
-            <span className="material-symbols-outlined text-3xl">menu</span>
+          <button 
+            className="md:hidden text-white p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <span className="material-symbols-outlined text-3xl">{isMobileMenuOpen ? 'close' : 'menu'}</span>
           </button>
         </div>
+
+        {/* Mobile Menu Drawer */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-dark-900 border-b border-dark-700 shadow-2xl py-4 px-4 flex flex-col gap-4">
+            <a href="#menu" onClick={() => setIsMobileMenuOpen(false)} className="font-bold text-lg uppercase tracking-widest text-white hover:text-brand border-b border-white/5 pb-2">Menú</a>
+            <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)} className="font-bold text-lg uppercase tracking-widest text-white hover:text-brand border-b border-white/5 pb-2">Contacto</a>
+            <a
+              href="https://wa.me/56982179010"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-brand text-dark-900 font-bold py-3 px-6 rounded-xl text-center text-sm uppercase tracking-widest mt-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Pedir Ahora
+            </a>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -173,8 +196,66 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Reseñas Google */}
+      <section className="py-16 md:py-24 bg-dark-800/80 relative border-t border-white/5">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
+            <div className="text-center md:text-left">
+              <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide">Lo que dicen en el barrio</h2>
+              <div className="h-1 w-24 bg-brand rounded-full mt-4 mx-auto md:mx-0"></div>
+            </div>
+            <div className="flex items-center gap-4 bg-white/5 px-6 py-4 rounded-2xl border border-white/5">
+              <span className="text-5xl font-bold text-white">4.9</span>
+              <div className="flex flex-col">
+                <div className="flex text-yellow-400">
+                  <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                  <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                  <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                  <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                  <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                </div>
+                <span className="text-sm text-gray-400">Excelentes valoraciones</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { author: "María González", review: "Las mejores pizzas de San Joaquín, lejos. La masa madre hace toda la diferencia. Super recomendadas." },
+              { author: "Carlos Pérez", review: "El pan de molde artesanal es increíble, dura un montón y tiene un sabor espectacular. Mi nueva panadería favorita." },
+              { author: "Francisca Silva", review: "Atención rápida y las pizzas salen calentitas. La de pepperoni es un imperdible del fin de semana." }
+            ].map((review, i) => (
+              <div key={i} className="bg-dark-900 p-6 rounded-2xl border border-white/5 hover:border-brand/30 transition-colors">
+                <div className="flex gap-1 text-yellow-400 mb-4 text-sm">
+                  <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                  <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                  <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                  <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                  <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                </div>
+                <p className="text-gray-300 mb-4 italic">"{review.review}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-brand/20 rounded-full flex items-center justify-center text-brand font-bold">
+                    {review.author.charAt(0)}
+                  </div>
+                  <span className="font-bold text-white text-sm">{review.author}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+             <a href="https://www.google.com/maps?q=Serendipia+Pan+y+Pizza+-+Llico+202,+8920000+San+Joaqu%C3%ADn,+Regi%C3%B3n+Metropolitana&ftid=0x9662d11c61cc9a2d:0x43c3062398ec35dd&entry=gps&shh=CAE&lucs=,94297699,94231188,94280568,47071704,94218641,94282134,94286869&g_ep=CAISEjI2LjA5LjUuODc0MjI2MzI1MBgAIIgnKj8sOTQyOTc2OTksOTQyMzExODgsOTQyODA1NjgsNDcwNzE3MDQsOTQyMTg2NDEsOTQyODIxMzQsOTQyODY4NjlCAkNM&skid=ccb0a424-e74e-4c7f-96cc-060784b99dfa&g_st=iw" target="_blank" rel="noreferrer"
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-8 rounded-full text-sm uppercase tracking-widest transition-colors">
+                  <span className="material-symbols-outlined text-yellow-500" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                  Déjanos tu reseña en Google
+              </a>
+          </div>
+        </div>
+      </section>
+
       {/* Info & Ubicación */}
-      <section id="ubicacion" className="py-16 bg-dark-900 relative border-t border-white/5">
+      <section id="ubicacion" className="py-16 md:py-24 bg-dark-900 relative border-t border-white/5">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
             {/* Contacto */}
