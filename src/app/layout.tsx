@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Serendipia Pan Pizzas",
   description: "Panadería y Pizzería con productos artesanales. Comida real, abundante y lista para el disfrute.",
   openGraph: {
-    title: "Serendipia Pan Pizzas",
+    title: "Serendipia Pan yPizzas",
     description: "Panadería y Pizzería con productos artesanales.",
     type: "website",
   },
