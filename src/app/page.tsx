@@ -233,13 +233,22 @@ export default function Home() {
                 <Image src="/images/hoja.png" alt="Hoja decorativa" width={48} height={48} className="object-contain" />
               </div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight text-white">Nuestra Historia</h2>
-            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
-              Serendipia nació de la pasión por los procesos lentos y la comida real. Creemos firmemente que el tiempo es el mejor ingrediente.
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight text-white">"Andas en busca de algo y encuentras algo mucho mejor"</h2>
+            <p className="text-brand text-lg md:text-xl font-bold tracking-widest uppercase mb-10 text-center">
+              Ese es el significado de Serendipia.
             </p>
-            <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
-              Trabajamos con masa madre natural, fermentaciones prolongadas, harinas seleccionadas y productos orgánicos. Somos una pizzería y panadería de barrio, creada con mucho amor en San Joaquín para tu mesa. ¡Bienvenidos a nuestra casa!
-            </p>
+            
+            <div className="space-y-6 text-gray-300 text-lg leading-relaxed md:text-center text-justify">
+              <p>
+                Este proyecto nació como respuesta a un vacío en nuestro barrio. Estábamos cansados de la oferta gastronómica rápida y de cadenas sin alma, donde faltaba oficio, calidad y pasión. Fue entonces cuando la historia nos unió: Mauricio, quien dedicó la pandemia a formarse en panadería artesanal, contactó a Pablo, un experimentado Pizzaiolo, para sumar conocimientos bajo un mismo techo.
+              </p>
+              <p>
+                Así fusionamos dos mundos: la panadería de especialidad y la auténtica pizza de estilo napolitano. Nuestra columna vertebral es el tiempo. Preparamos nuestras masas con levaduras naturales y fermentación controlada de 72 horas, logrando una ligereza, sabor profundo y esa "colgancia" perfecta que solo la técnica real puede lograr.
+              </p>
+              <p className="font-medium text-white text-xl mt-8">
+                Somos un proyecto de oficio, no de conveniencia. ¡Bienvenidos a nuestra casa!
+              </p>
+            </div>
         </div>
       </section>
 
