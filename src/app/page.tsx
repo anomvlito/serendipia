@@ -70,7 +70,7 @@ export default function Home() {
       <nav className="sticky top-0 z-40 bg-black border-b border-white/10 shadow-xl">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <a href="#" className="flex items-center gap-3">
-            <Image src="/images/logo.png" alt="Serendipia Logo" width={44} height={44} className="rounded-full bg-white p-1 object-contain hover:scale-105 transition-transform" />
+            <Image src="/images/logo.png" alt="Serendipia Logo" width={60} height={60} className="object-contain hover:scale-105 transition-transform" />
           </a>
 
           <div className="hidden md:flex gap-8 items-center border border-white/10 rounded-md px-6 py-2">
@@ -193,10 +193,15 @@ export default function Home() {
       )}
 
       {/* Hero Section Typography Focused */}
-      <section className="relative min-h-[60vh] md:min-h-[70vh] flex flex-col items-center justify-center border-b border-white/5 bg-gradient-to-b from-black to-[#0a0a0a]">
-        <div className="container mx-auto px-6 md:px-12 text-center max-w-4xl">
+      <section className="relative min-h-[60vh] md:min-h-[70vh] flex flex-col items-center justify-center border-b border-white/5 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden">
+        {/* Decoración Hoja */}
+        <div className="absolute top-10 -left-10 md:top-20 md:left-20 opacity-[0.03] pointer-events-none -rotate-12">
+            <Image src="/images/hoja.png" alt="Hoja" width={450} height={450} className="object-contain" />
+        </div>
+
+        <div className="container mx-auto px-6 md:px-12 text-center max-w-4xl relative z-10">
            <div className="mb-8">
-              <Image src="/images/logo.png" alt="Serendipia Logo" width={140} height={140} className="mx-auto rounded-full bg-white p-1" />
+              <Image src="/images/logo.png" alt="Serendipia Logo" width={180} height={180} className="mx-auto" />
            </div>
            <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter drop-shadow-2xl uppercase">
              Comida Real. <br /> <span className="text-brand">Fermentación Lenta.</span>
@@ -211,8 +216,13 @@ export default function Home() {
       </section>
 
       {/* Nuestra Historia */}
-      <section id="historia" className="py-20 md:py-28 bg-[#111111]">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
+      <section id="historia" className="py-20 md:py-28 bg-[#111111] relative overflow-hidden">
+        {/* Decoración Hoja */}
+        <div className="absolute -bottom-20 -right-20 opacity-[0.03] pointer-events-none rotate-[30deg]">
+            <Image src="/images/hoja.png" alt="Hoja decorativa" width={600} height={600} className="object-contain" />
+        </div>
+
+        <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
             <span className="material-symbols-outlined text-5xl text-brand mb-6">local_fire_department</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight text-white">Nuestra Historia</h2>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
@@ -457,7 +467,7 @@ export default function Home() {
          <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 text-center md:text-left">
                <div className="w-full md:w-1/3 flex justify-center md:justify-start">
-                  <Image src="/images/logo.png" alt="Serendipia Logo" width={80} height={80} className="bg-white rounded-full p-2" />
+                  <Image src="/images/logo.png" alt="Serendipia Logo" width={100} height={100} />
                </div>
                <div className="w-full md:w-1/3 flex flex-col gap-2">
                   <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Términos y condiciones</a>
@@ -465,7 +475,7 @@ export default function Home() {
                </div>
                <div className="w-full md:w-1/3 flex flex-col gap-2 items-center md:items-end">
                   <span className="font-bold text-white mb-2">Social</span>
-                  <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-1">
+                  <a href="https://www.instagram.com/serendipiapanypizzas" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-1">
                     Instagram <span className="material-symbols-outlined text-xs">open_in_new</span>
                   </a>
                </div>
