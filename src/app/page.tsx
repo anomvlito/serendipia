@@ -51,6 +51,9 @@ export default function Home() {
   const sendOrderToWhatsApp = () => {
     if (cart.length === 0) return;
 
+    // Abrir ventana antes del timeout para evitar bloqueadores de popups en Safari/Mobile
+    const whatsappWindow = window.open('', '_blank');
+
     // Pizza emoji confetti effect
     const scalar = 3;
     const pizza = (confetti as any).shapeFromText ? (confetti as any).shapeFromText({ text: '🍕', scalar }) : null;
@@ -70,7 +73,14 @@ export default function Home() {
       });
       message += `%0ATotal: *$${totalCart.toLocaleString('es-CL')}*%0A%0A¿Cuánto tiempo demora el retiro?`;
 
-      window.open(`https://wa.me/56982179010?text=${message}`, '_blank');
+      const whatsappUrl = `https://wa.me/56982179010?text=${message}`;
+      
+      if (whatsappWindow) {
+        whatsappWindow.location.href = whatsappUrl;
+      } else {
+        // Fallback seguro si window.open es bloqueado de todas formas
+        window.location.href = whatsappUrl;
+      }
     }, 1500); // Pequeño retraso para que se alcance a ver el confeti
   };
 
