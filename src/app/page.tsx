@@ -51,25 +51,9 @@ export default function Home() {
   const sendOrderToWhatsApp = () => {
     if (cart.length === 0) return;
 
-<<<<<<< HEAD
-    // Abrir ventana antes del timeout para evitar bloqueadores de popups en Safari/Mobile
-    const whatsappWindow = window.open('', '_blank');
-
-    // Pizza emoji confetti effect
-    const scalar = 3;
-    const pizza = (confetti as any).shapeFromText ? (confetti as any).shapeFromText({ text: '🍕', scalar }) : null;
-    
-    confetti({
-      shapes: pizza ? [pizza] : ['circle', 'square'],
-      scalar: pizza ? scalar : 1,
-      particleCount: 50,
-      spread: 90,
-      origin: { y: 0.6 }
-=======
     let message = "¡Hola! Quiero hacer un pedido en Serendipia:%0A%0A";
     cart.forEach(item => {
       message += `- ${item.quantity}x ${item.name} ($${(item.price * item.quantity).toLocaleString('es-CL')})%0A`;
->>>>>>> 28cbf10 (fix(whatsapp): ensure immediate redirect in same tab and robust confetti fallback)
     });
     message += `%0ATotal: *$${totalCart.toLocaleString('es-CL')}*%0A%0A¿Cuánto tiempo demora el retiro?`;
 
@@ -94,23 +78,11 @@ export default function Home() {
       confetti({ particleCount: 50, spread: 90, origin: { y: 0.6 } });
     }
 
-<<<<<<< HEAD
-      const whatsappUrl = `https://wa.me/56982179010?text=${message}`;
-      
-      if (whatsappWindow) {
-        whatsappWindow.location.href = whatsappUrl;
-      } else {
-        // Fallback seguro si window.open es bloqueado de todas formas
-        window.location.href = whatsappUrl;
-      }
-    }, 1500); // Pequeño retraso para que se alcance a ver el confeti
-=======
     // Esperar a que se vea el confeti (1 segundo y medio) y luego redirigir en la misma pestaña
     setTimeout(() => {
       setIsCartOpen(false); // Cerramos el carrito para que, si el usuario vuelve atrás, no le tape la pantalla
       window.location.href = whatsappUrl; // Redirigir en la misma pestaña evita la "ventana innecesaria"
     }, 1500);
->>>>>>> 28cbf10 (fix(whatsapp): ensure immediate redirect in same tab and robust confetti fallback)
   };
 
   return (
