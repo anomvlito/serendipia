@@ -636,9 +636,11 @@ export default function Home() {
             {/* Descripción del pedido */}
             <div className="flex-1 text-left min-w-0">
               <p className="font-bold text-sm text-black leading-tight truncate">
-                {cart.length === 1
-                  ? cart[0].name
-                  : `${cart[0].name} y ${cart.length - 1} más`}
+                {cart.length > 0
+                  ? cart.length === 1
+                    ? cart[0].name
+                    : `${cart[0].name} y ${cart.length - 1} más`
+                  : ''}
               </p>
             </div>
 
