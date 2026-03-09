@@ -614,6 +614,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sticky Bottom Cart Bar */}
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-40 transition-all duration-500 ease-out ${
+          cart.length > 0
+            ? 'translate-y-0 opacity-100'
+            : 'translate-y-full opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="max-w-2xl mx-auto px-4 pb-4 md:pb-6">
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="w-full bg-[#f48c25] hover:bg-[#e07d18] text-black rounded-2xl shadow-2xl shadow-[#f48c25]/30 flex items-center gap-3 px-5 py-4 transition-all hover:-translate-y-0.5 active:scale-[0.98]"
+          >
+            {/* Badge cantidad */}
+            <div className="bg-black/20 rounded-xl px-3 py-1.5 flex items-center gap-1.5 shrink-0">
+              <span className="material-symbols-outlined text-base text-black/80">shopping_basket</span>
+              <span className="font-black text-sm text-black">
+                {cart.reduce((acc, c) => acc + c.quantity, 0)}
+              </span>
+            </div>
+
+            {/* Descripción del pedido */}
+            <div className="flex-1 text-left min-w-0">
+              <p className="font-bold text-sm text-black leading-tight truncate">
+                {cart.length === 1
+                  ? cart[0].name
+                  : `${cart[0].name} y ${cart.length - 1} más`}
+              </p>
+            </div>
+
+            {/* Total + CTA */}
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="font-black text-base text-black">
+                ${totalCart.toLocaleString('es-CL')}
+              </span>
+              <span className="material-symbols-outlined text-black/70">chevron_right</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
       {/* Footer */}
       <footer className="py-12 bg-black border-t border-white/10">
         <div className="container mx-auto px-4">
