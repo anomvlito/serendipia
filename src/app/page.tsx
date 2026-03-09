@@ -267,12 +267,9 @@ export default function Home() {
                 const cartBeb = cart.find((c) => c.id === `beb-${beb.id}`);
                 return (
                   <div key={beb.id} className="flex items-center justify-between bg-black px-4 py-3 rounded-xl border border-white/5 hover:border-white/20 transition-colors">
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">{beb.emoji}</span>
-                      <div>
-                        <p className="text-white font-semibold text-sm">{beb.name}</p>
-                        <p className="text-brand text-xs font-bold">${beb.price.toLocaleString('es-CL')}</p>
-                      </div>
+                    <div>
+                      <p className="text-white font-semibold text-sm">{beb.name}</p>
+                      <p className="text-brand text-xs font-bold">${beb.price.toLocaleString('es-CL')}</p>
                     </div>
                     {cartBeb ? (
                       <div className="flex items-center bg-[#222222] rounded-lg overflow-hidden">
@@ -481,15 +478,16 @@ export default function Home() {
             <p className="text-gray-400 text-sm">Para acompañar tu pizza o pan favorito.</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {menuData.bebidas.map(beb => (
-              <div key={beb.id} className="flex flex-col items-center gap-3 p-5 bg-[#111111] hover:bg-[#1a1a1a] rounded-2xl border border-white/5 hover:border-white/20 transition-colors text-center">
-                <span className="text-4xl">{beb.emoji}</span>
-                <p className="text-white font-bold text-sm">{beb.name}</p>
-                <p className="text-brand font-bold text-sm">${beb.price.toLocaleString('es-CL')}</p>
+              <div key={beb.id} className="flex justify-between items-center gap-4 p-4 bg-[#111111] hover:bg-[#1a1a1a] rounded-2xl border border-white/5 hover:border-white/20 transition-colors">
+                <div>
+                  <p className="text-white font-bold text-sm">{beb.name}</p>
+                  <p className="text-brand font-bold text-sm mt-1">${beb.price.toLocaleString('es-CL')}</p>
+                </div>
                 <button
                   onClick={() => addToCart({ id: `beb-${beb.id}`, name: beb.name, price: beb.price })}
-                  className="bg-brand/10 hover:bg-brand text-brand hover:text-black w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+                  className="bg-brand/10 hover:bg-brand text-brand hover:text-black w-9 h-9 rounded-full flex items-center justify-center transition-colors shrink-0"
                 >
                   <span className="material-symbols-outlined text-sm">add</span>
                 </button>
