@@ -119,6 +119,13 @@ export const menuData = {
       }
     ]
   },
+  bebidas: [
+    { id: "coca-cola", name: "Coca-Cola 1.5L", price: 2500, emoji: "🥤" },
+    { id: "pepsi", name: "Pepsi 1.5L", price: 2500, emoji: "🥤" },
+    { id: "agua-mineral", name: "Agua Mineral 500cc", price: 1200, emoji: "💧" },
+    { id: "jugo-naranja", name: "Jugo Natural 500cc", price: 2000, emoji: "🍊" },
+    { id: "cerveza", name: "Cerveza Botella", price: 2500, emoji: "🍺" },
+  ],
   panaderia: {
     panPorUnidad: [
       { id: "baguette-masa-madre", name: "Baguette con masa madre", price: 1690 },
